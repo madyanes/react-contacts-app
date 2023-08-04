@@ -4,6 +4,7 @@ import Navigation from "./Navigation"
 import HomePage from "../pages/HomePage"
 import AddPage from "../pages/AddPage"
 import RegisterPage from "../pages/RegisterPage"
+import LoginPage from "../pages/LoginPage"
 
 class ContactApp extends React.Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class ContactApp extends React.Component {
                     </header>
                     <main>
                         <Routes>
-                            <Route path="/*" element={<p>Halaman Login</p>} />
+                            <Route path="/*" element={<LoginPage />} />
                             <Route path="/register" element={<RegisterPage />} />
                         </Routes>
                     </main>
