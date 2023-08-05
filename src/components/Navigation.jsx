@@ -1,8 +1,10 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
-import { FiHome, FiPlusCircle } from 'react-icons/fi'
+import PropTypes from 'prop-types'
+import { FiHome, FiPlusCircle, FiLogOut } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
-const Navigation = () => {
+const Navigation = ({ logout, name }) => {
     return (
         <nav className="navigation">
             <ul>
@@ -12,9 +14,17 @@ const Navigation = () => {
                 <li>
                     <Link to="/add"><FiPlusCircle /></Link>
                 </li>
+                <li>
+                    <button onClick={logout}>{name} <FiLogOut /></button>
+                </li>
             </ul>
         </nav>
     )
+}
+
+Navigation.propTypes = {
+    logout: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
 }
 
 export default Navigation
