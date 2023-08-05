@@ -21,7 +21,7 @@ class ContactApp extends React.Component {
                     this.setState((prevState) => {
                         return {
                             localeContext: {
-                                ...prevState,
+                                ...prevState.localeContext,
                                 locale: prevState.localeContext.locale === 'id' ? 'en' : 'id'
                             }
                         }
