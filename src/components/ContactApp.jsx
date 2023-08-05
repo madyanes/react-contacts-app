@@ -29,6 +29,16 @@ class ContactApp extends React.Component {
         })
     }
 
+    async componentDidMount() {
+        const { data } = await getUserLogged()
+
+        this.setState(() => {
+            return {
+                authedUser: data,
+            }
+        })
+    }
+
     render() {
         if (this.state.authedUser === null) {
             return (
