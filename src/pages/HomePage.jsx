@@ -2,8 +2,7 @@ import React from 'react'
 import { useSearchParams } from 'react-router-dom'
 import ContactList from '../components/ContactLIst'
 import SearchBar from '../components/SearchBar'
-import { deleteContact } from '../utils/data'
-import { getContacts } from '../utils/api'
+import { getContacts, deleteContact } from '../utils/api'
 
 const HomePageWrapper = () => {
     const [searchParams, setSearchParams] = useSearchParams()
@@ -45,13 +44,14 @@ class HomePage extends React.Component {
         })
     }
 
-    onDeleteHandler(id) {
-        deleteContact(id)
+    async onDeleteHandler(id) {
+        await deleteContact(id)
 
-        // update the contact state from data.js
+        // update the contact state from api.js
+        const { data } = await getContacts()
         this.setState(() => {
             return {
-                contacts: getContacts(),
+                contacts: data,
             }
         })
     }
