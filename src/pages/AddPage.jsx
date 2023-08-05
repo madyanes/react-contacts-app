@@ -1,13 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { addContact } from '../utils/data'
+import { addContact } from '../utils/api'
 import ContactInput from '../components/ContactInput'
 
 const AddPage = () => {
     const navigate = useNavigate()
 
-    const onAddContactHandler = (contact) => {
-        addContact(contact)
+    const onAddContactHandler = async (contact) => {
+        await addContact(contact)
         navigate('/')
     }
 
