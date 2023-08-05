@@ -13,6 +13,7 @@ class ContactApp extends React.Component {
 
         this.state = {
             authedUser: null,
+            initializing: true,
         }
 
         this.onLoginSuccess = this.onLoginSuccess.bind(this)
@@ -35,11 +36,16 @@ class ContactApp extends React.Component {
         this.setState(() => {
             return {
                 authedUser: data,
+                initializing: false,
             }
         })
     }
 
     render() {
+        if (this.state.initializing) {
+            return null
+        }
+
         if (this.state.authedUser === null) {
             return (
                 <div className='contact-app'>
