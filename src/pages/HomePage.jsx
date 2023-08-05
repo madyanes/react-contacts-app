@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSearchParams } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { LocaleConsumer } from '../contexts/LocaleContexts'
 import ContactList from '../components/ContactLIst'
 import SearchBar from '../components/SearchBar'
@@ -94,6 +95,11 @@ class HomePage extends React.Component {
             </LocaleConsumer>
         )
     }
+}
+
+HomePage.propTypes = {
+    defaultKeyword: PropTypes.string,
+    keywordChange: PropTypes.func.isRequired,
 }
 
 export default HomePageWrapper
