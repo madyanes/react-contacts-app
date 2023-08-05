@@ -19,6 +19,9 @@ class ContactApp extends React.Component {
                 locale: 'id',
                 toggleLocale: () => {
                     this.setState((prevState) => {
+                        const newLocale = prevState.localeContext.locale === 'id' ? 'en' : 'id'
+                        localStorage.setItem('locale', newLocale)
+
                         return {
                             localeContext: {
                                 ...prevState.localeContext,
